@@ -1,0 +1,1 @@
+{"id": "int64", "date": "str", "object_id": "int64", "branch_id": "int64", "name": "str", "text": "str", "status": "str", "object_class": "str", "bk_update_dt": "str", "ava": "str", "parent_id": "int64", "ip_country": "str", "from_mobile": "int64", "rating": "int64", "user_id": "int64", "news_header": "str", "rate": "int64"}

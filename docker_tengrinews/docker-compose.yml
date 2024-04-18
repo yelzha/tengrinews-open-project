@@ -1,0 +1,43 @@
+version: '3'
+services:
+  mage_service:
+    image: mageai/mageai:0.9.62
+    container_name: ${PROJECT_NAME}-mage
+    command: mage start ${PROJECT_NAME}
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      USER_CODE_PATH: /home/src/${PROJECT_NAME}
+      POSTGRES_DBNAME: ${POSTGRES_DBNAME}
+      POSTGRES_SCHEMA: ${POSTGRES_SCHEMA}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+    ports:
+      - ${MAGE_PORT}:6789
+    networks:
+      - tengrinews_open_project
+    volumes:
+      - .:/home/src/
+      - ~/.google/credentials/:/.google/credentials/
+  postgres_service:
+    image: postgres:14
+    container_name: ${PROJECT_NAME}-postgres
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DBNAME}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    networks:
+      - tengrinews_open_project
+
+networks:
+  tengrinews_open_project:
+    driver: bridge

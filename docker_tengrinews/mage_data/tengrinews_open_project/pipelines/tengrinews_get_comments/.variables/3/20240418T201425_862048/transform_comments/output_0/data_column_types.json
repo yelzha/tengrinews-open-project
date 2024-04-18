@@ -1,0 +1,1 @@
+{"id": "int64", "date": "datetime64[ns]", "object_id": "int64", "name": "str", "text": "str", "parent_id": "int64", "ip_country": "str", "from_mobile": "int64", "rating": "int64", "user_id": "int64"}

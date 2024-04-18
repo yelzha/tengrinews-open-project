@@ -1,0 +1,1 @@
+{"page_url": "str", "category": "str", "page_id": "int64", "title": "str", "content": "str", "hashtags": "str", "date_txt": "str", "views_count": "int64", "datetime": "datetime64[ns]", "date": "date"}
