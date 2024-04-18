@@ -1,0 +1,36 @@
+# Example of dbt_project.yml configuration
+
+name: 'tengrinews_analysis'
+version: '1.0.0'
+config-version: 2
+
+profile: 'default'
+
+# Model configurations
+models:
+  tengrinews_analysis:
+    # Path is relative to the `models/` directory
+    staging:
+      +materialized: view
+      news_comments:
+        +schema: staging  # Optional: Define a specific schema in your warehouse
+      news_data:
+        +schema: staging  # Optional: Define a specific schema in your warehouse
+    core:
+      +materialized: table
+      comments_summary_by_news_page:
+        +schema: core  # Optional: Define a specific schema in your warehouse
+      engagement_analysis_by_news_page:
+        +schema: core  # Optional: Define a specific schema in your warehouse
+
+# Seed configurations, if you have any CSV seed files
+seeds:
+  tengrinews_analysis:
+    +materialized: table
+    +schema: seeds  # Seeds typically go into a separate schema
+
+# Test configurations
+tests:
+  +schema: tests  # Optional: Define a specific schema for running tests
+
+# This setup ensures that your staging models are created as views and core models as tables.

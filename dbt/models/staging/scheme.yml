@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_news_comments
+    description: "This staging model cleans the raw news comments data by truncating timestamps to the nearest hour, trimming names and text, and filtering out records where text is null."
+    columns:
+      - name: id
+        description: "The unique identifier for each comment."
+      - name: hour
+        description: "The hour part of the date when the comment was made, rounded to the nearest hour."
+      - name: object_id
+        description: "The identifier for the news page on which the comment was made."
+      - name: name
+        description: "The name of the commenter, trimmed of extra spaces."
+      - name: text
+        description: "The text of the comment, trimmed of extra spaces and filtered to exclude null values."
+      - name: parent_id
+        description: "The identifier of the parent comment if the comment is a reply."
+      - name: ip_country
+        description: "The country from which the comment was posted."
+      - name: from_mobile
+        description: "Indicator of whether the comment was made from a mobile device (1 if true, 0 if false)."
+      - name: rating
+        description: "The rating given by the commenter."
+      - name: user_id
+        description: "The identifier of the user who made the comment."
+
+  - name: stg_news_data
+    description: "This staging model cleans the raw news data by lowercasing the category, trimming the title and content, splitting hashtags into an array, and parsing dates and timestamps from strings."
+    columns:
+      - name: page_url
+        description: "The URL of the news page."
+      - name: category
+        description: "The category of the news content, converted to lowercase."
+      - name: page_id
+        description: "The unique identifier for the news page."
+      - name: title
+        description: "The title of the news content, trimmed of extra spaces."
+      - name: content
+        description: "The main content of the news page, trimmed of extra spaces."
+      - name: hashtags_array
+        description: "An array of hashtags associated with the news content."
+      - name: date
+        description: "The publication date of the news content, parsed from a date string."
+      - name: views_count
+        description: "The number of views the news page has received."
+      - name: timestamp
+        description: "The timestamp of the news data entry, converted from an integer to a timestamp."

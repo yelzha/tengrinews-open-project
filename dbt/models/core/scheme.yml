@@ -1,0 +1,102 @@
+version: 2
+
+models:
+  - name: user_engagement_analysis
+    description: "This model provides an analysis of user engagement based on the number of comments and replies on each news page. It helps to understand how actively users are participating in discussions related to each article."
+    columns:
+      - name: page_id
+        description: "The unique identifier for the news page."
+      - name: page_url
+        description: "The URL of the news page."
+      - name: title
+        description: "The title of the news article."
+      - name: category
+        description: "The category of the news article."
+      - name: unique_commenters
+        description: "The number of unique users who commented on the news page."
+      - name: avg_comments_per_user
+        description: "The average number of comments made by each user."
+      - name: total_replies
+        description: "The total number of replies to comments on the news page."
+      - name: avg_rating_on_page
+        description: "The average rating of all comments on the page."
+
+  - name: comment_sentiment_summary
+    description: "This model summarizes the sentiment of comments by news page, providing insights into general user sentiment and the ratio of positive to negative comments."
+    columns:
+      - name: page_id
+        description: "The unique identifier for the news page."
+      - name: page_url
+        description: "The URL of the news page."
+      - name: title
+        description: "The title of the news article."
+      - name: category
+        description: "The category of the news article."
+      - name: average_rating
+        description: "The average rating of all comments on the page."
+      - name: total_comments
+        description: "The total number of comments on the news page."
+      - name: positive_comments
+        description: "The number of comments with a rating above 3."
+      - name: negative_comments
+        description: "The number of comments with a rating of 3 or below."
+      - name: positivity_ratio
+        description: "The ratio of positive comments to total comments."
+
+  - name: comments_summary_by_news_page
+    description: "This model provides a comprehensive summary of comments by news page, including total comments, average ratings, and a geographical distribution of comments. It's useful for analyzing user engagement and global reach on a per-article basis."
+    columns:
+      - name: page_id
+        description: "The unique identifier for the news page."
+      - name: page_url
+        description: "The URL of the news page."
+      - name: title
+        description: "The title of the news article."
+      - name: category
+        description: "The category under which the news article is classified."
+      - name: content
+        description: "The main content/body of the news article."
+      - name: hashtags
+        description: "List of hashtags associated with the news article."
+      - name: views_count
+        description: "The total number of views the news page has received."
+      - name: published_date
+        description: "The date the news article was published."
+      - name: total_comments
+        description: "The total number of comments made on the news page."
+      - name: average_rating
+        description: "The average rating of all comments on the page."
+      - name: unique_users
+        description: "The count of unique users who have commented on the news page."
+      - name: ip_country
+        description: "The country from which the comment was posted."
+      - name: comments_count
+        description: "The number of comments coming from each country."
+
+
+  - name: engagement_analysis_by_news_page
+    description: "This model combines page view data with comment data to analyze user engagement across news pages. It provides metrics such as total comments, average, maximum, and minimum ratings, and calculates comments per view to understand engagement depth."
+    columns:
+      - name: page_id
+        description: "The unique identifier for the news page."
+      - name: page_url
+        description: "The URL of the news page."
+      - name: title
+        description: "The title of the news article."
+      - name: category
+        description: "The category under which the news article is classified."
+      - name: content
+        description: "The main content/body of the news article."
+      - name: views_count
+        description: "The total number of views the news page has received."
+      - name: total_comments
+        description: "The total number of comments made on the news page."
+      - name: avg_rating
+        description: "The average rating of all comments on the page."
+      - name: max_rating
+        description: "The maximum rating received by any comment on the page."
+      - name: min_rating
+        description: "The minimum rating received by any comment on the page."
+      - name: comments_per_view
+        description: "The ratio of total comments to page views, indicating the depth of engagement per view."
+
