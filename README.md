@@ -1,6 +1,84 @@
-<<<<<<< Updated upstream
+# Problem Statement for Tengrinews.kz Open Project
+
+**Background:**
+Tengrinews.kz, founded by Batyr Kazybayev and managed by LLC "Effective Media Liaison", is a prominent daily online news outlet in Kazakhstan. With a commitment to providing continuous, real-time news coverage, Tengrinews.kz has established itself as a critical source of information, reaching a wide audience through its digital platform.
+
+**Objective:**
+The goal of this project is to develop a robust data engineering pipeline to extract, transform, and load data from Tengrinews.kz efficiently. Specifically, the pipeline will focus on retrieving articles published the previous day and comments posted between the current date and the previous seven days. This data will be utilized to perform various business logic operations, which will aid in deeper data analysis and insights.
+
+**Challenges:**
+1. **Data Volume and Velocity:** The data is generated daily and continuously, which requires an efficient system for timely data scraping without overloading the website's servers or violating any usage policies.
+2. **Data Quality and Consistency:** Ensuring the data scraped is accurate and consistent, given the dynamic nature of news content and user-generated comments.
+3. **Complexity of Data Transformation:** Implementing advanced business logic that can handle diverse datasets and perform complex transformations for meaningful analysis.
+
+**Proposed Solution:**
+Develop a scalable data engineering solution that utilizes sophisticated scraping techniques with a paginator to fetch yesterday's articles. The solution will also implement a robust system to gather comments from the past week. These processes will be automated and scheduled to run at optimal times to ensure fresh data availability for daily analysis. The pipeline will also include components for error handling, data validation, and preprocessing to maintain high data quality and reliability.
+
+**Impact:**
+The successful implementation of this project will provide Tengrinews.kz with a powerful tool to monitor its outreach, understand reader engagement, and enhance its content strategy based on analytical insights. Moreover, it will serve as a scalable model that can be adapted for similar data-intensive environments requiring real-time data processing and analysis.
+
+
+# Solution 
 This project automates the extraction, transformation, and loading of data from Tengrinews.kz to facilitate detailed analytical processes. The primary goals include performing sentiment analysis and aggregating data based on geographic and temporal criteria to derive insightful information.
 
+ ## Technology Used 
+ - Python was used as a programming language. 
+ - Terraform was used for managing infrastructure as code. 
+ - Mage was used as an orchestrator. 
+ - Google Cloud Storage was used as a data lake. 
+ - DBT was used as a business transformer tool. 
+ - Big Query was used as a data warehouse. 
+ - Google Data Studio / Looker Studio was used for visualisation.
+
+
+ ## Dashboard 
+  ![image](https://github.com/yelzha/tengrinews-open-project/assets/54392243/0ac62dcc-402e-4aee-9cf4-833134e1105f)
+  Dashboard Link: [https://lookerstudio.google.com/reporting/1347fff4-3c12-4cf9-a193-1c80e29b810f](https://lookerstudio.google.com/reporting/c93b1e3b-f273-4b93-b9cb-9878bc8b9cab)
+
+
+# How to replicate solution? 
+ ## Pre-requisites
+ - Docker must be installed
+ - Terraform must be installed
+ - Mage must be installed 
+ - DBT Cloud must be used 
+ - Google Cloud account must be active
+
+
+  ## Set Up Google Resources
+  -	Create a project in Google Cloud
+  -	Set up a service account. The service account needs to have the following roles:
+    * BigQuery Admin
+    * Compute Admin
+    * Storage Admin     
+  -	Create a key for the service account and download the json version 
+  -	Change directory into the Terraform folder and edit the files to point to your key file
+  -	Run the following command to create the GCP resources:
+    ```bash
+        terraform init
+        terraform plan 
+        terraform apply
+     ```
+
+
+ ## Mage Application Steps
+ -	Clone the solution from GitHub 
+ -	Change directory into to the solution folder 
+ -	Run docker compose up to get Mage up and running
+       ```bash
+        docker compose up -d
+     ```
+
+
+ ## DBT Application Steps
+ -	Clone the solution from GitHub 
+ -	Change directory into to the "dbt" folder
+ -	Go to the DBT cloud adn create new project based on code
+
+       
+
+
+# REPORT AND DOCUMENTATION
 System Architecture
 Data Extraction:
 ![image](https://github.com/yelzha/tengrinews-open-project/assets/54392243/baf43781-74eb-433f-8b01-0fe9c1128e91)
@@ -198,7 +276,7 @@ Data aggregation by country and other pertinent dimensions.
 Additional Feature: Advanced Geospatial Analysis
 Feature Description:
 Implement advanced geospatial analysis to provide deeper insights into how news sentiment and topics vary across different regions. This feature will allow the identification of geographic patterns in news engagement and sentiment, aiding targeted content delivery and marketing strategies.
-![image](https://github.com/yelzha/tengrinews-open-project/assets/54392243/0ac62dcc-402e-4aee-9cf4-833134e1105f)
+
 
 Implementation:
 
