@@ -32,7 +32,7 @@ This project automates the extraction, transformation, and loading of data from 
 
 
  ## Dashboard 
-  ![image](https://github.com/yelzha/tengrinews-open-project/assets/54392243/0ac62dcc-402e-4aee-9cf4-833134e1105f)
+  ![image](https://github.com/yelzha/tengrinews-open-project/assets/54392243/ad5e846a-6c49-4df9-a101-9d452833ac83)
   Dashboard Link: [https://lookerstudio.google.com/reporting/1347fff4-3c12-4cf9-a193-1c80e29b810f](https://lookerstudio.google.com/reporting/c93b1e3b-f273-4b93-b9cb-9878bc8b9cab)
 
 
@@ -276,7 +276,7 @@ Data aggregation by country and other pertinent dimensions.
 Additional Feature: Advanced Geospatial Analysis
 Feature Description:
 Implement advanced geospatial analysis to provide deeper insights into how news sentiment and topics vary across different regions. This feature will allow the identification of geographic patterns in news engagement and sentiment, aiding targeted content delivery and marketing strategies.
-
+![image](https://github.com/yelzha/tengrinews-open-project/assets/54392243/0ac62dcc-402e-4aee-9cf4-833134e1105f)
 
 Implementation:
 
@@ -286,4 +286,4 @@ Visualization: Extend existing visualizations in tools like Google Data Studio o
 Conclusion
 The documentation outlines the complete workflow of the project and introduces an advanced feature to enhance geographic analytical capabilities. This additional geospatial analysis feature could significantly boost the project's ability to provide nuanced insights, supporting more strategic decision-making based on regional trends and patterns.
 
-![image](https://github.com/yelzha/tengrinews-open-project/assets/54392243/ad5e846a-6c49-4df9-a101-9d452833ac83)
+
